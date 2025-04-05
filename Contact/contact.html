@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact</title>
+		<link rel="stylesheet" href="../style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Réinitialisation des styles pour éviter les marges et les paddings par défaut */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Poppins", sans-serif;
+			}
+
+			/* Empêche le défilement horizontal */
+			body {
+				overflow-x: hidden;
+			}
+
+			/* Mise en page principale */
+			main {
+				height: 100vh;
+				background: #242424;
+				/* Ajout d'un effet de gradient radial en arrière-plan */
+				background-image: radial-gradient(
+						circle at 10% 20%,
+						rgba(13, 33, 214, 0.1) 0%,
+						transparent 40%
+					),
+					radial-gradient(
+						circle at 90% 80%,
+						rgba(218, 22, 71, 0.1) 0%,
+						transparent 40%
+					);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 60px;
+			}
+
+			/* Conteneur principal du formulaire de contact */
+			.container {
+				position: relative;
+				width: 30%;
+				height: 600px;
+				background: #1c1c1c;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 15px 30px rgba(18, 6, 51, 0.5);
+				margin-right: 5%;
+			}
+
+			/* Effet d'animation du contact*/
+			.container::before {
+				content: "";
+				position: absolute;
+				top: -50%;
+				left: -50%;
+				width: 100%;
+				height: 420px;
+				background: linear-gradient(0deg, transparent, #da1647, #da1647);
+				transform-origin: bottom right;
+				animation: animate 7s linear infinite;
+			}
+			.container::after {
+				content: "";
+				position: absolute;
+				top: -50%;
+				left: -50%;
+				width: 100%;
+				height: 420px;
+				background: linear-gradient(0deg, transparent, #0d21d6, #0d21d6);
+				transform-origin: bottom right;
+				animation: animate 7s linear infinite;
+				animation-delay: 5s;
+			}
+
+			/* Rotation de la lumière */
+			@keyframes animate {
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			/* Style du formulaire de contact */
+			.form {
+				position: absolute;
+				inset: 3px;
+				border-radius: 10px;
+				background: #24232a;
+				z-index: 10;
+				padding: 50px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 10px;
+				h2 {
+					color: #0379ff;
+					font-size: 1.5rem;
+					margin-bottom: 20px;
+					text-align: center;
+					width: 100%;
+				}
+			}
+
+			/* Style des champs d'entrée du formulaire */
+			.input-box {
+				position: relative;
+				width: 100%;
+				margin-bottom: 8px;
+
+				label {
+					color: #0379ff;
+					position: absolute;
+					left: 10px;
+					top: 10px;
+					font-size: 1em;
+					pointer-events: none;
+					transition: 0.4s;
+				}
+
+				textarea {
+					resize: none;
+					height: 120px;
+				}
+			}
+
+			.input-box input,
+			.input-box textarea {
+				width: 100%;
+				padding: 10px;
+				background: #1c1c1c;
+				border: none;
+				outline: none;
+				color: #fff;
+				font-size: 2rem;
+				border-radius: 5px;
+				margin-top: 10px;
+			}
+
+			/* Style des labels animés */
+			.input-box input:focus ~ label,
+			.input-box input:valid ~ label,
+			.input-box textarea:focus ~ label,
+			.input-box textarea:valid ~ label {
+				top: -9px;
+				left: 0;
+				color: #da1647;
+				font-size: 0.8em;
+			}
+
+			/* Style du bouton d'envoi */
+			.btn {
+				background: linear-gradient(45deg, #da1647, #0d21d6);
+				border: none;
+				width: 100%;
+				padding: 10px 25px;
+				color: #fff;
+				cursor: pointer;
+				border-radius: 5px;
+				font-weight: 600;
+				transition: 0.3s;
+				margin-top: 10px;
+			}
+			.btn:hover {
+				opacity: 0.8;
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(218, 22, 71, 0.3);
+			}
+
+			/* Conteneur des informations de contact */
+			.info-container {
+				position: relative;
+				width: 450px;
+				height: 450px;
+				border-radius: 50%;
+				margin-left: 5%;
+				background: rgba(36, 35, 42, 0.7);
+				backdrop-filter: blur(5px);
+				box-shadow: 0 15px 30px rgba(0, 0, 0, 0.418);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				overflow: hidden;
+			}
+			.info-container::before {
+				content: "";
+				position: absolute;
+				width: 150%;
+				height: 150%;
+				background: radial-gradient(
+					circle,
+					rgba(20, 12, 126, 0.1),
+					transparent 60%
+				);
+				top: -25%;
+				left: -25%;
+			}
+			.info-content {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			/* Style des icônes et liens de contact */
+			.info-item {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				color: #fff;
+				width: 180px;
+				transition: all 0.3s ease;
+				padding: 15px;
+				border-radius: 10px;
+
+				i {
+					font-size: 2.5rem;
+					margin-bottom: 15px;
+					background: linear-gradient(45deg, #da1647, #0d21d6);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+				}
+				p {
+					color: #fff;
+					font-size: 0.9rem;
+					font-weight: 300;
+					margin-bottom: 5px;
+				}
+				a {
+					color: #8f8f8f;
+					text-decoration: none;
+					transition: color 0.3s ease;
+				}
+				a:hover {
+					color: #da1647;
+				}
+			}
+
+			.info-item:hover {
+				transform: scale(1.05);
+			}
+
+			.info-item.top {
+				top: 40px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.info-item.top:hover {
+				transform: translateX(-50%) scale(1.05);
+			}
+
+			.info-item.left {
+				left: 40px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.info-item.left:hover {
+				transform: translateY(-50%) scale(1.05);
+			}
+
+			.info-item.bottom {
+				bottom: 40px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.info-item.bottom:hover {
+				transform: translateX(-50%) scale(1.05);
+			}
+
+			.info-item.right {
+				right: 40px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.info-item.right:hover {
+				transform: translateY(-50%) scale(1.05);
+			}
+
+			/* Style du bouton de téléchargement du CV */
+			.download-btn {
+				background: linear-gradient(45deg, #0d21d6, #da1647);
+				border: none;
+				padding: 10px 20px;
+				color: #fff;
+				cursor: pointer;
+				border-radius: 25px;
+				font-weight: 500;
+				margin-top: 10px;
+				transition: 0.3s;
+				text-decoration: none;
+				display: inline-block;
+				box-shadow: 0 5px 15px rgba(13, 33, 214, 0.3);
+			}
+			.download-btn:hover {
+				opacity: 0.9;
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(13, 33, 214, 0.4);
+			}
+
+			/* Responsive troudbite*/
+			@media (max-width: 1200px) {
+				.container {
+					width: 40%;
+				}
+			}
+			@media (max-width: 992px) {
+				main {
+					flex-direction: column;
+					height: auto;
+					padding: 100px 20px;
+				}
+				.container {
+					width: 90%;
+					max-width: 500px;
+					margin-right: 0;
+					margin-bottom: 50px;
+				}
+				.info-container {
+					margin-left: 0;
+					width: 90%;
+					max-width: 450px;
+					height: 450px;
+				}
+			}
+			@media (max-width: 576px) {
+				nav ul {
+					gap: 20px;
+				}
+				.info-item {
+					width: 150px;
+				}
+				.info-item i {
+					font-size: 2rem;
+				}
+				.info-item p {
+					font-size: 0.8rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="../Profil/profil.html">Profil</a></li>
+					<li><a href="../Compétence/compétence.html">Compétences</a></li>
+					<li><a href="../Projet/projet.html">Projets</a></li>
+					<li><a href="../Contact/contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<!-- Formulaire de contact à gauche -->
+			<section class="container">
+				<div class="form">
+					<h2>Contactez-moi</h2>
+					<form action="#" method="post">
+						<div class="input-box">
+							<input type="text" required />
+							<label>Nom</label>
+						</div>
+						<div class="input-box">
+							<input type="email" required />
+							<label>Email</label>
+						</div>
+						<div class="input-box">
+							<input type="text" required />
+							<label>Sujet</label>
+						</div>
+						<div class="input-box">
+							<textarea required></textarea>
+							<label>Message</label>
+						</div>
+						<button type="submit" class="btn">Envoyer le formulaire</button>
+					</form>
+				</div>
+			</section>
+
+			<!-- Section d'informations de contact -->
+			<section class="info-container">
+				<div class="info-content">
+					<!-- Logo en haut -->
+					<div class="info-item top">
+						<i class="fas fa-home"></i>
+						<p>Finistère</p>
+					</div>
+
+					<!-- Logo à gauche -->
+					<div class="info-item left">
+						<i class="fas fa-phone"></i>
+						<p>07 83 63 18 07</p>
+					</div>
+
+					<!-- Logo en bas -->
+					<div class="info-item bottom">
+						<i class="fas fa-envelope"></i>
+						<p>
+							<a href="mailto:lisethuillier@orange.fr">lisethuillier@orange.fr</a>
+						</p>
+					</div>
+
+					<!-- Logo à droite (bouton CV) -->
+					<div class="info-item right">
+						<i class="fas fa-file-alt"></i>
+						<p>Mon CV</p>
+						<a
+							href="../Image/CV Lise THUILLIER SISR et SLAM cyber.pdf"
+							download
+							class="download-btn"
+						>
+							Télécharger
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

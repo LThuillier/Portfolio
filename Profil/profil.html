@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../style.css" />
+		<title>Lise</title>
+		<style>
+			html,
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Poppins", sans-serif;
+			}
+			body {
+				overflow-x: hidden;
+			}
+			main {
+				height: 100vh;
+			}
+			@media (max-width: 576px) {
+				nav ul {
+					gap: 20px;
+				}
+			}
+			body {
+				/* background: url("assets/FondLogo.png") no-repeat center center fixed; */
+				/* tu mettras la taille qu'il faudras */
+				background-color: #535151;
+			}
+
+			#about-me {
+				/* position du bordel au centre */
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				position: absolute;
+
+				/*taille*/
+				width: 80ch;
+				margin: 0 auto;
+				padding: 20px;
+
+				/*couleur de fond, de la police */
+				background-color: #181515;
+				color: white;
+				border-radius: 20px;
+			}
+			/*ça c'est le responsive*/
+			@media screen and (width < 768px) {
+				#about-me {
+					max-width: 80vw;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<!-- dans les href tu mettras les liens des autres pages  -->
+					<li><a href="../Profil/profil.html">Profil</a></li>
+					<li><a href="../Compétence/compétence.html">Compétences</a></li>
+					<li><a href="../Projet/projet.html">Projets</a></li>
+					<li><a href="../Contact/contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<div id="about-me">
+				<h1>À propos de moi</h1>
+				<p>
+					Je suis un développeur web junior passionné par la programmation et le
+					développement web.
+				</p>
+				<p>
+					J'ai commencé à apprendre le développement web il y a 1 an et j'ai acquis
+					de solides compétences en HTML, CSS, JavaScript et PHP.
+				</p>
+				<p>
+					J'ai également travaillé sur des projets personnels et des projets de
+					groupe pour améliorer mes compétences en développement web.
+				</p>
+				<p>
+					Je suis actuellement à la recherche d'un emploi en tant que développeur web
+					junior pour mettre en pratique mes compétences et en apprendre davantage
+					sur le développement web.
+				</p>
+			</div>
+		</main>
+	</body>
+</html>
